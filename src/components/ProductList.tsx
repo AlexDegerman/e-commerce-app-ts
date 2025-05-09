@@ -9,6 +9,7 @@ import groceries from "../data/groceries.json";
 import { useMemo, useState } from "react";
 import "../styles/ProductList.css";
 import type { Product } from "../types/Product";
+import { Link } from "react-router-dom";
 
 const categories: string[] = ["All", "Electronics", "Clothing", "Home Decor", "Sports & Outdoors", "Beauty & Personal Care", "Toys & Games", "Books", "Groceries"]
 
@@ -51,11 +52,13 @@ const ProductList = () => {
       </div>
       <div className="product-grid">
         {productsToDisplay.map((product) => (
-          <div key={product.id} className="product-card">
-            <img src={product.image} alt="product-name" className="product-image"/>
-            <h3>{product.name}</h3>
-            <p>${product.price}</p>
-          </div>
+          <Link to={`/product/${product.id}`} key={product.id} className="product-link">
+            <div className="product-card">
+              <img src={product.image} alt={product.name} className="product-image" />
+              <h3>{product.name}</h3>
+              <p>${product.price}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

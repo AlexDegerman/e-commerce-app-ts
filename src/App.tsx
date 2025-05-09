@@ -3,6 +3,7 @@ import Header from './components/Header'
 import { Route, Routes } from 'react-router-dom'
 import ProductList from './components/ProductList'
 import HomePage from './components/HomePage'
+import ProductPage from './components/ProductPage'
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/product-list" element={<ProductList/>}/>
           <Route path="/" element={<HomePage/>}/>
+          <Route path="/product/:index" element={<ProductPage/>}/>
         </Routes>
       </div>
     </div>

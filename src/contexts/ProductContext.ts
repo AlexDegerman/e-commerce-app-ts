@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import type { ProductMap } from "../types/ProductMap";
+import { createContext } from "react"
+import type { ProductMap } from "../types/ProductMap"
 
 export interface ProductContextType {
   products: ProductMap

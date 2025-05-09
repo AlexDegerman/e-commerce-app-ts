@@ -1,8 +1,8 @@
-import promotedProducts from "../data/promotedProducts.json";
-import featuredProducts from "../data/featuredProducts.json";
-import "../styles/HomePage.css";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import promotedProducts from "../data/promotedProducts.json"
+import featuredProducts from "../data/featuredProducts.json"
+import "../styles/HomePage.css"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0)

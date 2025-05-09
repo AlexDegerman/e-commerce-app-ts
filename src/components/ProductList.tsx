@@ -1,8 +1,8 @@
-import { useMemo, useState } from "react";
-import "../styles/ProductList.css";
-import type { Product } from "../types/Product";
-import { Link } from "react-router-dom";
-import { useProduct } from "../hooks/useProduct";
+import { useMemo, useState } from "react"
+import "../styles/ProductList.css"
+import type { Product } from "../types/Product"
+import { Link } from "react-router-dom"
+import { useProduct } from "../hooks/useProduct"
 
 const categories: string[] = ["All", "Electronics", "Clothing", "Home Decor", "Sports & Outdoors", "Beauty & Personal Care", "Toys & Games", "Books", "Groceries"]
 

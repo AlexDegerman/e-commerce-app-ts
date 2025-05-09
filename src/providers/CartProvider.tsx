@@ -55,12 +55,23 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
     })
   }
 
+  const clearCart = (): void => {
+    setCartItems([])
+    localStorage.removeItem("cartItems")
+  }
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
   }, [cartItems])
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateCartItemQuantity}}>
+    <CartContext.Provider value={{ 
+      cartItems,
+      addToCart,
+      removeFromCart,
+      updateCartItemQuantity,
+      clearCart
+    }}>
       {children}
     </CartContext.Provider>
   )

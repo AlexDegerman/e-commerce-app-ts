@@ -15,6 +15,7 @@ const ProductPage = () => {
   const { products } = useProduct()
   const { addToCart } = useCart()
   const [quantity, setQuantity] = useState<number>(1)
+  const [showNotification, setShowNotification] = useState<boolean>(false)
   const product = Object.values(products)
   .flat()
   .find((p) => p.id === parseInt(index || "0"))
@@ -33,15 +34,27 @@ const ProductPage = () => {
     setQuantity(Number(e.target.value))
   }
 
-  const handleAddToCart = (): void => {
+const handleAddToCart = (): void => {
     addToCart({
       ...product,
       quantity: quantity
     })
+    
+    setShowNotification(true)
+    
+    setTimeout(() => {
+      setShowNotification(false)
+    }, 3000)
   }
 
 return (
     <div className="product-page-container">
+      {showNotification && (
+        <div className="notification">
+          <CheckCircle color="white" size={16} />
+          <span>{quantity}x {product.name} added to cart!</span>
+        </div>
+      )}
       <h1 className="product-title">{product.name}</h1>
       <img src={product.image} alt={product.name} className="product-page-image" />
       <div className="product-details">

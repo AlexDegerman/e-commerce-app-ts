@@ -9,6 +9,7 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
   const storedCartItems = JSON.parse(localStorage.getItem("cartItems") || "[]") as Product[]
   const [cartItems, setCartItems] = useState(storedCartItems)
 
+  // Adds a product to the cart, updating its quantity if already in the cart, or adding it as a new item.
   const addToCart = (product: Product): void => {
     setCartItems((prevItems) => {
       const existingItemIndex = prevItems.findIndex(item => item.id === product.id)

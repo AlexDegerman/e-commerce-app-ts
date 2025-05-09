@@ -44,6 +44,7 @@ return (
             </Link>
           ))}
         </div>
+          <Link to="/product-list" className="more-products"><p className="more-products-message">More products</p></Link>
       </div>
     </div>
   )

@@ -1,9 +1,9 @@
-import { useCart } from "../hooks/useCart"
+import { useCartStore } from "../stores/useCartStore"
 import "../styles/Header.css"
 import { Link } from "react-router-dom"
 
 const Header = () => {
-  const {cartItems} = useCart()
+  const {cartItems} = useCartStore()
 
   return (
     <div className="header">

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../hooks/useCart"
 import "../styles/Cart.css";
+import { useCartStore } from "../stores/useCartStore";
 
 const Cart = () => {
-  const { cartItems, removeFromCart, clearCart } = useCart()
+  const { cartItems, removeFromCart, clearCart } = useCartStore()
 
   // Calculate total price of items in cart
   const totalPrice = cartItems.reduce((total, item) => total + (item.price * (item.quantity || 1)), 0)

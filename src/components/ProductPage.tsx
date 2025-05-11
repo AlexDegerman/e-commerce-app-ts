@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
 import "../styles/ProductPage.css"
 import { CheckCircle, DollarSign, ShoppingCart, Truck } from "lucide-react"
-import { useProduct } from "../hooks/useProduct"
 import { useState } from "react"
 import { useCartStore } from "../stores/useCartStore"
+import useProductStore from "../stores/useProductStore"
 
 interface ProductPageParams {
   [key: string]: string | undefined
@@ -12,7 +12,7 @@ interface ProductPageParams {
 
 const ProductPage = () => {
   const { index } = useParams<ProductPageParams>()
-  const { products } = useProduct()
+  const { products } = useProductStore()
   const { addToCart } = useCartStore()
   const [quantity, setQuantity] = useState<number>(1)
   const [showNotification, setShowNotification] = useState<boolean>(false)

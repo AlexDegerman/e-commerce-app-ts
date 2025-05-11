@@ -1,4 +1,3 @@
-import { useState, type FC, type ReactNode} from "react"
 import electronics from "../data/electronics.json"
 import clothing from "../data/clothing.json"
 import homeDecor from "../data/homeDecor.json"
@@ -7,12 +6,12 @@ import beauty from "../data/beauty.json"
 import toys from "../data/toys.json"
 import books from "../data/books.json"
 import groceries from "../data/groceries.json"
-import ProductContext from "../contexts/ProductContext"
 import type { ProductMap } from "../types/ProductMap"
 import type { Product } from "../types/Product"
+import { create } from "zustand"
 
-interface ProductProviderProps {
-  children: ReactNode
+interface ProductState {
+  products: ProductMap
 }
 
 const allProducts: ProductMap = {
@@ -26,12 +25,8 @@ const allProducts: ProductMap = {
   Groceries: groceries as Product[],
 }
 
-export const ProductProvider: FC<ProductProviderProps> = ({ children }) => {
-  const [products] = useState<ProductMap>(allProducts)
+const useProductStore = create<ProductState>(() => ({
+  products: allProducts,
+}))
 
-  return (
-    <ProductContext.Provider value={{ products }}>
-      {children}
-    </ProductContext.Provider>
-  )
-}
+export default useProductStore

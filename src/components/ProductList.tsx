@@ -2,14 +2,14 @@ import { useMemo, useState } from "react"
 import "../styles/ProductList.css"
 import type { Product } from "../types/Product"
 import { Link } from "react-router-dom"
-import { useProduct } from "../hooks/useProduct"
+import useProductStore from "../stores/useProductStore"
 
 const categories: string[] = ["All", "Electronics", "Clothing", "Home Decor", "Sports & Outdoors", "Beauty & Personal Care", "Toys & Games", "Books", "Groceries"]
 
 
 const ProductList = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
-  const { products } = useProduct()
+  const { products } = useProductStore()
 
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     setSelectedCategory(event.target.value)

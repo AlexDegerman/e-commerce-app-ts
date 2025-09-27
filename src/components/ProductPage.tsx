@@ -26,7 +26,7 @@ const ProductPage = () => {
   const stockAmount = Math.floor(Math.random() * (200 - 100 + 1)) + 100
 
   if (!product) {
-    return <div className="not-found">Product not found</div>
+    return <div className="text-black mt-5">Product not found</div>
   }
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {

@@ -58,7 +58,7 @@ const HomePage = () => {
           ))}
         </div>
         <Link to="/product-list" className="text-lg no-underline text-center">
-          <p className="m-2.5">More products</p>
+          <p className="m-2.5 text-black">More products</p>
         </Link>
       </div>
     </div>
